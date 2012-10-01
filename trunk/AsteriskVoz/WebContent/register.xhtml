@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+     <h:head><h1>Asterisk Voice Recognition</h1>
+     <link rel="stylesheet" href="css/style.css" type="text/css"/>
+     </h:head> 
+     <h:body>
+     <h:form class="headerline"></h:form>
+     	<fieldset>
+     	
+     	<h:form class="registerclass">
+     		<h:outputLabel value="Nome: " for="user" />
+     		<h:inputText id="user" value="#{usersMB.users.user_name}"/>
+     		<h:outputLabel value="Senha: " for="password" />
+     		<h:inputSecret value="#{usersMB.users.passw}" />
+     		<h:commandButton value="Salvar" action="#{usersMB.creatUsers()}"/>          
+     	</h:form>
+     	</fieldset>
+        </h:body>
+
+</html>
