@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="162,145,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="asteriskconfig::#asteriskconfig.xhtml"
+    NAME="output" PATH="/asteriskconfig.xhtml"
+    TARGET="rules:#asteriskconfig.xhtml" TITLE="asteriskconfig" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="loginerror::#loginerror.xhtml"
+    NAME="output1" PATH="/loginerror.xhtml"
+    TARGET="rules:#loginerror.xhtml" TITLE="loginerror" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#asteriskconfig.xhtml"
+  PATH="/asteriskconfig.xhtml" SHAPE="374,143,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#loginerror.xhtml" PATH="/loginerror.xhtml"
+  SHAPE="377,204,0,0" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#register.xhtml" PATH="/register.xhtml"
+  SHAPE="180,277,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#register.xhtml:0" NAME="item"
+   PATH="/register.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="registersucess::#registersucess.xhtml"
+    NAME="output" PATH="/registersucess.xhtml"
+    TARGET="rules:#registersucess.xhtml" TITLE="registersucess" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#registersucess.xhtml"
+  PATH="/registersucess.xhtml" SHAPE="382,278,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
+</PROCESS>

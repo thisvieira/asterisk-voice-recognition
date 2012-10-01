@@ -1,0 +1,96 @@
+/*CSS Document*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background-color: orange;
+}
+
+h1 {
+	font: 60px verdana, arial, tahoma, sans-serif;
+	text-align: center;
+}
+
+.headerline {
+	background-color: #000CFF;
+	width: 1250px;
+	height: 5px;
+	padding:5px;
+	margin: 10px 10px 0px 10px;
+}
+.info{
+	width: 900px;
+	height: 5px;
+	padding:5px;
+	margin: 50px 10px 0px 10px;
+	
+}
+
+fieldset {
+	background-color: #FFF;
+	width: 300px;
+	height: 200px;
+	margin: 70px 40px 100px 910px;
+	padding: 10px;
+	border: 4px solid #000;
+	box-shadow: 0 0 1px #000CFF;
+}
+
+legend {
+	background-color: #999;
+	border: 2px solid #FFF;
+	padding: 10px;
+	margin-left: 80px;
+	font-size: 40px;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: 0 0 1px #000;
+}
+
+label,input[type="text"],input[type="password"] {
+	display: block;
+}
+
+input[type="text"],input[type="password"] {
+	width: 90%;
+	height: 25px;
+	border: 2px solid #CCC;
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	color: blue;
+	background-color: gray;
+}
+
+input[type="submit"] {
+	border: 2px solid #000;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+input[type="submit"]:hover {
+	background-color: #8FBC8F;
+}
+
+label {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+input:focus {
+	border-color: red;
+	background-color: #FFF;
+}
+
+input:hover {
+	border-color: #8FBC8F;
+}
+
+p {
+	font: 12px verdana, arial, tahoma, sans-serif;
+	vertical-align: middle;
+	display: table-cell;
+}
