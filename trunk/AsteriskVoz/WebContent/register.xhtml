@@ -11,9 +11,9 @@
      </h:head> 
      <h:body>
      <h:form class="headerline"></h:form>
-     	<fieldset>
-     	
-     	<h:form class="registerclass">
+     	<fieldset class="registerclass">
+     	<legend>Cadastro de Usuários</legend>
+     	<h:form>
      		<h:outputLabel value="Nome: " for="user" />
      		<h:inputText id="user" value="#{usersMB.users.user_name}"/>
      		<h:outputLabel value="Senha: " for="password" />

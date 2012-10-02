@@ -7,7 +7,7 @@
 	
 	
 body {
-	background-color: orange;
+	background-color: #EAEAAE;
 	}
 	
 h1 { 
@@ -32,6 +32,7 @@ h1 {
 		
 #menu ul li a { 
 	font: 15px verdana, arial, tahoma, sans-serif;
+	font-color: #FFF;
 	background-color: #000CFF;
 	text-decoration: none;
 	color: #000;
