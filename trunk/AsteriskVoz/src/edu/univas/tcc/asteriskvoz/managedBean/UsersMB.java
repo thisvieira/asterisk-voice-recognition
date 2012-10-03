@@ -3,6 +3,7 @@ package edu.univas.tcc.asteriskvoz.managedBean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.naming.InitialContext;
@@ -13,6 +14,7 @@ import edu.univas.tcc.asteriskvoz.entity.Users;
 
 @ManagedBean
 @ViewScoped
+@Stateless
 public class UsersMB {
 
 	private Users users = new Users();
