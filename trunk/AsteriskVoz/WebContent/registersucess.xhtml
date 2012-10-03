@@ -6,14 +6,18 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
       
-     <h:head><h1>Asterisk Voice Recognition</h1>
-     <title>Asterisk Voice Recognition</title>
-     <link rel="stylesheet" href="css/styleconfig.css" type="text/css"/>
+     <h:head><title>Asterisk Voice Recognition</title>
+	     <link rel="stylesheet" href="css/style.css" type="text/css"/>
      </h:head> 
+     
      <h:body>
+           <h1>Asterisk Voice Recognition</h1>
+           
+      	   <h:form class="headerline"></h:form>
      <h:form>
-     	Cadastro realizado com sucesso!!!
-     	<h:commandLink value="Login" action="index.jsf"/>
+     
+     	<p class="success">Cadastro Realizado com Sucesso! </p>
+     	<h:commandButton class="nameLabel" value="Login" action="index.jsf"/>
      </h:form>
      </h:body>
 

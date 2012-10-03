@@ -14,11 +14,11 @@
      	<fieldset class="registerclass">
      	<legend>Cadastro de Usuários</legend>
      	<h:form>
-     		<h:outputLabel value="Nome: " for="user" />
+     		<h:outputLabel class="nameLabel" value="Nome: " for="user" />
      		<h:inputText id="user" value="#{usersMB.users.user_name}"/>
-     		<h:outputLabel value="Senha: " for="password" />
+     		<h:outputLabel class="nameLabel" value="Senha: " for="password" />
      		<h:inputSecret value="#{usersMB.users.passw}" />
-     		<h:commandButton value="Salvar" action="#{usersMB.creatUsers()}"/>          
+     		<h:commandButton class="nameLabel" value="Salvar" action="#{usersMB.creatUsers()}"/>          
      	</h:form>
      	</fieldset>
         </h:body>
