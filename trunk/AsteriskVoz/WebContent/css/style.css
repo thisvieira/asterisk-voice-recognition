@@ -1,4 +1,6 @@
 /*CSS Document*/
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -13,13 +15,37 @@ h1 {
 	text-align: center;
 }
 
-.headerline {
-	background-color: #000CFF;
-	width: 100%;
-	height: 15px;
-	padding: 5px;
+	
+#menu {
+	background: #000CFF;
 	display: table;
-}
+	width: 100%;
+	}
+
+#menu ul {
+	list-style: none;
+	}
+	
+#menu ul li {
+		display: inline;
+		}
+		
+#menu ul li a { 
+	font: 15px verdana, arial, tahoma, sans-serif;
+	font-color: #FFF;
+	background-color: #000CFF;
+	text-decoration: none;
+	color: #000;
+	float: left;
+	padding: 5px 10px;
+	margin-left: 1px;
+	}
+	
+#menu ul li a:hover{ 
+	color: orange;
+	background: #FFF;
+	}
+
 .info{
 	width: 900px;
 	height: 5px;
@@ -42,7 +68,7 @@ fieldset {
 	background-color: #FFF;
 	width: 400px;
 	height: 200px;
-	margin: 100px 40px 100px 910px;
+	margin: 100px 40px 100px 740px;
 	padding: 10px;
 	border: 4px solid #000;
 	box-shadow: 0 0 1px #000CFF;
