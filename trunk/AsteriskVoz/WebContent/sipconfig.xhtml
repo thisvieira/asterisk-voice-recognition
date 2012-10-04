@@ -26,7 +26,7 @@
 			<li><a href="#" title="Atendimento">Atendimento Automático</a></li>
 			<li><a href="index.jsf" title="Sair">Sair</a></li>
 		</ul>
-	</div>
+		</div>
 	
 	
 		<ul class="itens">
@@ -37,6 +37,66 @@
 <div class="aba">
     <div id="aba1">
         Cadastro SIP
+        <form action="" method="post">
+		<fieldset>
+			<label>Name: <input type="text" name="name"/> </label>
+			<label>Username: <input type="text" name="usersip"/> </label>
+			<label>Secret: <input type="password" name="passsip"/> </label>
+			<label>Callerid: <input type="text" name="callerid"/> </label>
+			<label>Context: <input type="text" name="context"/> </label>
+			<label>Host: <input type="text" name="host"/> </label>
+			<label>DefaultIP: <input type="text" name="defaultip"/> </label>
+
+			<label>Type:
+				<select title="type"> 
+					<option value="user">User</option>
+					<option value="peer">Peer</option>
+					<option value="friend">Friend</option>
+				</select>
+			</label>
+			
+			<label>Port: <input type="number" name="port"/> </label>
+			
+			<label>Language:
+				<select title="language"> 
+					<option value="pt_br">pt_br</option>
+					<option value="pt">pt</option>
+					<option value="en">en</option>
+					<option value="en_us">en_us</option>
+					<option value="es">es</option>
+					<option value="es_ar">es_ar</option>
+
+				</select>
+			</label>
+
+			<label>Disallow:
+				<select title="disallow"> 
+					<option value="all">all</option>
+					<option value="alaw">alaw</option>
+					<option value="ulaw">ulaw</option>
+					<option value="g729">g729</option>
+					<option value="gsm">gsm</option>
+					<option value="ilbc">ilbc</option>
+
+				</select>
+			</label>
+
+			<label>Allow:
+				<select title="allow"> 
+					<option value="all">all</option>
+					<option value="alaw">alaw</option>
+					<option value="ulaw">ulaw</option>
+					<option value="g729">g729</option>
+					<option value="gsm">gsm</option>
+					<option value="ilbc">ilbc</option>
+
+				</select>
+			
+			</label>
+							
+			<label><input type="submit" name="submit"/> </label>
+		</fieldset>
+	</form>	
     </div>
     <div id="aba2">
         Tabela SIP
