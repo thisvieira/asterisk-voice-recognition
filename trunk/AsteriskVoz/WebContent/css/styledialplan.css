@@ -46,3 +46,56 @@ h1 {
 	background: #FFF;
 	}
 	
+body {
+    font: 15px verdana, arial, tahoma;
+    }
+   
+.itens { 
+	margin: 20px 20px 0; 
+	list-style: none;
+}
+
+.tab {
+	float: left;
+}
+
+.itens a {
+    float: left;
+    border: 1px solid black;
+    background: blue;
+    padding: 5px 15px;
+    color: #FFF;
+    text-decoration: none;
+    }
+   
+.itens a:focus {
+	background: orange;
+	}
+
+.aba { 
+	padding: 0 20px;
+	width: 700px; 
+	clear: both;
+	position: relative;
+	}
+	
+.aba div {
+    background: white;
+    border: 5px solid black;
+    padding: 10px;
+    width: 100%;
+    display: none;
+	position: absolute;
+    }
+
+.aba div:first-child {
+    display: block;
+    }
+	
+.aba div:target {
+    display:block;
+    }
+	
+.aba div .target {
+    display:block;
+    }
