@@ -7,7 +7,7 @@
 	
 	
 html {
-	background-color: #EEDD82;
+	background-color: #FFFFFF;
 }
 	
 h1 { 
@@ -17,7 +17,7 @@ h1 {
 	
 	
 #menu {
-	background: #000CFF;
+	background: #FF9900;
 	display: table;
 	width: 100%;
 	}
@@ -33,7 +33,7 @@ h1 {
 #menu ul li a { 
 	font: 15px verdana, arial, tahoma, sans-serif;
 	font-color: #FFF;
-	background-color: #000CFF;
+	background-color: #FF9900;
 	text-decoration: none;
 	color: #000;
 	float: left;
