@@ -33,7 +33,7 @@
      		<h:outputLabel class="nameLabel" value="Usuário: " for="user" />
      		<h:inputText id="user" value="#{usersMB.users.user_name}"/>
      		<h:outputLabel class="nameLabel" value="Senha: " for="password" />
-     		<h:inputSecret value="#{usersMB.users.passw}" />
+     		<h:inputSecret id="password" value="#{usersMB.users.passw}" />
      		<h:commandButton class="nameLabel" value="Login" action="#{usersMB.loginUsers()}"/>
             <h:commandLink class="nameLabel" value="Cadastrar" action="register.jsf"/>
      	</h:form>
