@@ -37,69 +37,68 @@
 <div class="aba">
     <div id="aba1">
         Cadastro SIP
-        <form action="" method="post">
+        
 		<fieldset>
-			<label>Name: <input type="text" name="name"/> </label>
-			<label>Username: <input type="text" name="usersip"/> </label>
-			<label>Secret: <input type="password" name="passsip"/> </label>
-			<label>Callerid: <input type="text" name="callerid"/> </label>
-			<label>Context: <input type="text" name="context"/> </label>
-			<label>Host: <input type="text" name="host"/> </label>
-			<label>DefaultIP: <input type="text" name="defaultip"/> </label>
-
-			<label>Type:
-				<select title="type"> 
-					<option value="user">User</option>
-					<option value="peer">Peer</option>
-					<option value="friend">Friend</option>
-				</select>
-			</label>
-			
-			<label>Port: <input type="text" name="port"/> </label>
-			
-			<label>Language:
-				<select title="language"> 
-					<option value="pt_br">pt_br</option>
-					<option value="pt">pt</option>
-					<option value="en">en</option>
-					<option value="en_us">en_us</option>
-					<option value="es">es</option>
-					<option value="es_ar">es_ar</option>
-
-				</select>
-			</label>
-
-			<label>Disallow:
-				<select title="disallow"> 
-					<option value="all">all</option>
-					<option value="alaw">alaw</option>
-					<option value="ulaw">ulaw</option>
-					<option value="g729">g729</option>
-					<option value="gsm">gsm</option>
-					<option value="ilbc">ilbc</option>
-
-				</select>
-			</label>
-
-			<label>Allow:
-				<select title="allow"> 
-					<option value="all">all</option>
-					<option value="alaw">alaw</option>
-					<option value="ulaw">ulaw</option>
-					<option value="g729">g729</option>
-					<option value="gsm">gsm</option>
-					<option value="ilbc">ilbc</option>
-
-				</select>
-			
-			</label>
-							
-			<label><input type="submit" name="submit"/> </label>
-		</fieldset>
-	</form>	
+		<h:form>
+		    <h:outputLabel class="nameLabel" value="Nome: " for="name" />
+			<h:inputText id="name" value="#{sipMB.registerSip.name}"/>
+			<h:outputLabel class="nameLabel" value="Ramal: " for="exten" />
+			<h:inputText id="exten" value="#{sipMB.registerSip.extenNumber}"/>
+			<h:outputLabel class="nameLabel" value="Senha: " for="secret" />
+			<h:inputText id="secret" value="#{sipMB.registerSip.secret}"/>
+			<h:outputLabel class="nameLabel" value="CallId: " for="callId" />
+			<h:inputText id="callId" value="#{sipMB.registerSip.callerid}"/>
+			<h:outputLabel class="nameLabel" value="Contexto: " for="context" />
+			<h:inputText id="context" value="#{sipMB.registerSip.context}"/>
+			<h:outputLabel class="nameLabel" value="Host: " for="host" />
+			<h:inputText id="host" value="#{sipMB.registerSip.host}"/>
+			<h:outputLabel class="nameLabel" value="DefaultIP: " for="dip" />
+			<h:inputText id="dip" value="#{sipMB.registerSip.defaultIP}"/>
+			<h:outputLabel class="nameLabel" value="Tipo: " for="type" />
+		    <h:selectOneMenu id="type" value="#{sipMB.registerSip.type}">
+						<f:selectItem itemValue="1" itemLabel="Friend" />
+						<f:selectItem itemValue="2" itemLabel="User" />
+						<f:selectItem itemValue="3" itemLabel="Peer" />
+     		</h:selectOneMenu>
+			<h:outputLabel class="nameLabel" value="Port: " for="port" />
+			<h:inputText id="port" value="#{sipMB.registerSip. port}"/>
+			<h:outputLabel class="nameLabel" value="Linguagem: " for="language" />
+			<h:selectOneMenu id="language" value="#{sipMB.registerSip.language}">
+						<f:selectItem itemValue="1" itemLabel="pt_br" />
+						<f:selectItem itemValue="2" itemLabel="pt" />
+						<f:selectItem itemValue="3" itemLabel="en" />
+						<f:selectItem itemValue="4" itemLabel="en_us" />
+						<f:selectItem itemValue="5" itemLabel="es" />
+						<f:selectItem itemValue="6" itemLabel="es_ar" />
+     		</h:selectOneMenu>
+     		<h:outputLabel class="nameLabel" value="Disallow: " for="disallow" />
+			<h:selectOneMenu id="disallow" value="#{sipMB.registerSip.disallow}">
+			            <f:selectItem itemValue="1" itemLabel="alaw" />
+						<f:selectItem itemValue="1" itemLabel="alaw" />
+						<f:selectItem itemValue="2" itemLabel="ulaw" />
+						<f:selectItem itemValue="3" itemLabel="g729" />
+						<f:selectItem itemValue="4" itemLabel="gsm" />
+						<f:selectItem itemValue="5" itemLabel="ilbc" />
+     		</h:selectOneMenu>
+     		<h:outputLabel class="nameLabel" value="Allow: " for="allow" />
+			<h:selectOneMenu id="allow" value="#{sipMB.registerSip.allow}">
+						<f:selectItem itemValue="1" itemLabel="alaw" />
+						<f:selectItem itemValue="2" itemLabel="ulaw" />
+						<f:selectItem itemValue="3" itemLabel="g729" />
+						<f:selectItem itemValue="4" itemLabel="gsm" />
+						<f:selectItem itemValue="5" itemLabel="ilbc" />
+     		</h:selectOneMenu>
+					
+			<h:commandButton class="nameLabel" value="Cadastrar" action="#{sipMB.registerSip()}"/>
+			</h:form>
+		</fieldset>	
     </div>
     <div id="aba2">
         Tabela SIP
+        
+        <h:form>
+        
+        </h:form>
     </div>
 
 </div>	
