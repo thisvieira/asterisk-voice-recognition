@@ -44,8 +44,8 @@
 			<h:inputText id="name" value="#{sipMB.registerSip.name}"/>
 			<h:outputLabel class="nameLabel" value="Ramal: " for="exten" />
 			<h:inputText id="exten" value="#{sipMB.registerSip.extenNumber}"/>
-			<h:outputLabel class="nameLabel" value="Senha: " for="secret" />
-			<h:inputText id="secret" value="#{sipMB.registerSip.secret}"/>
+			<h:outputLabel class="nameLabel" value="Senha: " for="password" />
+			<h:inputSecret id="password" value="#{sipMB.registerSip.secret}"/>
 			<h:outputLabel class="nameLabel" value="CallId: " for="callId" />
 			<h:inputText id="callId" value="#{sipMB.registerSip.callerid}"/>
 			<h:outputLabel class="nameLabel" value="Contexto: " for="context" />
@@ -56,40 +56,41 @@
 			<h:inputText id="dip" value="#{sipMB.registerSip.defaultIP}"/>
 			<h:outputLabel class="nameLabel" value="Tipo: " for="type" />
 		    <h:selectOneMenu id="type" value="#{sipMB.registerSip.type}">
-						<f:selectItem itemValue="1" itemLabel="Friend" />
-						<f:selectItem itemValue="2" itemLabel="User" />
-						<f:selectItem itemValue="3" itemLabel="Peer" />
+						<f:selectItem itemValue="friend" itemLabel="Friend" />
+						<f:selectItem itemValue="user" itemLabel="User" />
+						<f:selectItem itemValue="peer" itemLabel="Peer" />
      		</h:selectOneMenu>
 			<h:outputLabel class="nameLabel" value="Port: " for="port" />
 			<h:inputText id="port" value="#{sipMB.registerSip. port}"/>
 			<h:outputLabel class="nameLabel" value="Linguagem: " for="language" />
 			<h:selectOneMenu id="language" value="#{sipMB.registerSip.language}">
-						<f:selectItem itemValue="1" itemLabel="pt_br" />
-						<f:selectItem itemValue="2" itemLabel="pt" />
-						<f:selectItem itemValue="3" itemLabel="en" />
-						<f:selectItem itemValue="4" itemLabel="en_us" />
-						<f:selectItem itemValue="5" itemLabel="es" />
-						<f:selectItem itemValue="6" itemLabel="es_ar" />
+						<f:selectItem itemValue="pt_br" itemLabel="pt_br" />
+						<f:selectItem itemValue="pt" itemLabel="pt" />
+						<f:selectItem itemValue="en" itemLabel="en" />
+						<f:selectItem itemValue="en_us" itemLabel="en_us" />
+						<f:selectItem itemValue="es" itemLabel="es" />
+						<f:selectItem itemValue="es_ar" itemLabel="es_ar" />
      		</h:selectOneMenu>
      		<h:outputLabel class="nameLabel" value="Disallow: " for="disallow" />
 			<h:selectOneMenu id="disallow" value="#{sipMB.registerSip.disallow}">
-			            <f:selectItem itemValue="1" itemLabel="alaw" />
-						<f:selectItem itemValue="1" itemLabel="alaw" />
-						<f:selectItem itemValue="2" itemLabel="ulaw" />
-						<f:selectItem itemValue="3" itemLabel="g729" />
-						<f:selectItem itemValue="4" itemLabel="gsm" />
-						<f:selectItem itemValue="5" itemLabel="ilbc" />
+			            <f:selectItem itemValue="all" itemLabel="all" />
+						<f:selectItem itemValue="alaw" itemLabel="alaw" />
+						<f:selectItem itemValue="ulaw" itemLabel="ulaw" />
+						<f:selectItem itemValue="g729" itemLabel="g729" />
+						<f:selectItem itemValue="gsm" itemLabel="gsm" />
+						<f:selectItem itemValue="ilbc" itemLabel="ilbc" />
      		</h:selectOneMenu>
      		<h:outputLabel class="nameLabel" value="Allow: " for="allow" />
 			<h:selectOneMenu id="allow" value="#{sipMB.registerSip.allow}">
-						<f:selectItem itemValue="1" itemLabel="alaw" />
-						<f:selectItem itemValue="2" itemLabel="ulaw" />
-						<f:selectItem itemValue="3" itemLabel="g729" />
-						<f:selectItem itemValue="4" itemLabel="gsm" />
-						<f:selectItem itemValue="5" itemLabel="ilbc" />
+						<f:selectItem itemValue="alaw" itemLabel="alaw" />
+						<f:selectItem itemValue="ulaw" itemLabel="ulaw" />
+						<f:selectItem itemValue="g729" itemLabel="g729" />
+						<f:selectItem itemValue="gsm" itemLabel="gsm" />
+						<f:selectItem itemValue="ilbc" itemLabel="ilbc" />
      		</h:selectOneMenu>
 					
 			<h:commandButton class="nameLabel" value="Cadastrar" action="#{sipMB.registerSip()}"/>
+			<h:commandButton class="nameLabel" value="Registrar" action="#{sipMB.sipReload()}"/>
 			</h:form>
 		</fieldset>	
     </div>
