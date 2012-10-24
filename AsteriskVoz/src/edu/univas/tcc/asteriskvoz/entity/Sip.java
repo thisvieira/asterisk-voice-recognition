@@ -14,6 +14,11 @@ public class Sip {
 	private String language;
 	private String disallow;
 	private String allow;
+	
+	public Sip(){
+		
+	}
+	
 	public String getName() {
 		return name;
 	}
