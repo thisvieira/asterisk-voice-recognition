@@ -1,7 +1,5 @@
 package edu.univas.tcc.asteriskvoz.managedBean;
 
-
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,7 +26,7 @@ public class SipMB {
 	private Sip registerSip = new Sip();
 	private ManagerConnection managerConnection = null;
 
-	public String registerSip() throws AsteriskClientException, TimeoutException {
+	public String registerSip(){
 
 		File dir = new File("/etc/asterisk");
 		File arq = new File(dir, "sip.conf");
@@ -55,8 +53,11 @@ public class SipMB {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+		return null;
+	}
+
+	public String reloadSip() throws AsteriskClientException {
 		try {
 
 			ManagerConnectionFactory managerConnectionFactory = new ManagerConnectionFactory(
@@ -75,11 +76,15 @@ public class SipMB {
 		} catch (AuthenticationFailedException e) {
 			throw new AsteriskClientException(
 					"Usuário ou senha inválidos para o servidor localhost.", e);
+		} catch (TimeoutException e) {
+			throw new AsteriskClientException(
+					"Tempo de conexão expirou", e);
 		}
 		System.out.println(managerConnection.getState());
 		CommandAction ca = new CommandAction("sip reload");
 		try {
 			managerConnection.sendAction(ca);
+			return "sipconfirm";
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -94,15 +99,10 @@ public class SipMB {
 			e.printStackTrace();
 		}
 		return null;
-
-		
-	}
-
-	public String sipReload() {
-		return null;
 	}
 
 	public Sip getRegisterSip() {
+
 		return registerSip;
 	}
 
