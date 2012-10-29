@@ -7,7 +7,7 @@
 	
 	
 html {
-	background-color: #FFFFF;
+	background-color: #FFFFFF;
 }
 	
 h1 { 
@@ -105,18 +105,18 @@ body {
 fieldset {
 	background-color: #FFF;
 	width: 300px;
-	height: 730px;
+	height: 430px;
 	margin: 50px auto;
 	padding: 10px;
 	border: 2px solid #000;
 	border-radius: 5px;
 	}
 	
-label, input[type="text"], input[type="number"], input[type="password"], select {
+label, input[type="text"], input[type="number"] {
 	display: block;
 }
 
-input[type="text"], input[type="number"], input[type="password"], select {
+input[type="text"], input[type="number"] {
 	width: 90%;
 	height: 20px;
 	border: 2px solid #CCC;
@@ -138,12 +138,3 @@ label {
 	font-weight: bold;
 	margin-bottom: 10px;
 	}
-	
-select {
-	padding: 5px; 
-	font-size: 15px;
-	border-radius: 5px;
-	height: 34px;
-	position: relative;
-}
-
