@@ -13,8 +13,7 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#asteriskconfig.xhtml"
-  PATH="/asteriskconfig.xhtml" SHAPE="374,143,0,0"
-  model-entity="JSFProcessGroup" persistent="true"/>
+  PATH="/asteriskconfig.xhtml" SHAPE="374,143,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#loginerror.xhtml" PATH="/loginerror.xhtml"
   SHAPE="377,204,0,0" model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#register.xhtml" PATH="/register.xhtml"

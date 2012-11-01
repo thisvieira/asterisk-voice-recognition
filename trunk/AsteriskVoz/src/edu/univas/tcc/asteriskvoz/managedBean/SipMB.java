@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -18,9 +18,9 @@ import org.asteriskjava.manager.action.CommandAction;
 import edu.univas.tcc.asteriskvoz.entity.Sip;
 import edu.univas.tcc.asteriskvoz.exception.AsteriskClientException;
 
-@ManagedBean
 @ViewScoped
-@Stateless
+@ManagedBean
+@Stateful
 public class SipMB {
 
 	private Sip registerSip = new Sip();
@@ -108,6 +108,15 @@ public class SipMB {
 
 	public void setRegisterSip(Sip registerSip) {
 		this.registerSip = registerSip;
+	}
+
+	public org.asteriskjava.manager.ManagerConnection getManagerConnection() {
+		return managerConnection;
+	}
+
+	public void setManagerConnection(
+			org.asteriskjava.manager.ManagerConnection managerConnection) {
+		this.managerConnection = managerConnection;
 	}
 
 }
