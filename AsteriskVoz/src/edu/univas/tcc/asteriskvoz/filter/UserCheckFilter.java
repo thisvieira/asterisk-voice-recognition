@@ -15,28 +15,26 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(servletNames={"Faces Servlet"})
 public class UserCheckFilter implements Filter {
-
+	
+	FilterConfig filterConfig;
+	
 	public UserCheckFilter() {
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 
 		HttpServletRequest req = (HttpServletRequest) request;
-		HttpSession session = req.getSession();
+		HttpSession session = req.getSession(true);
 		
-		if (session.getAttribute("users") !=null || req.getRequestURI().endsWith("index.jsf")) {
+		if (session.getAttribute("name") !=null || req.getRequestURI().endsWith("index.jsf")) {
 			
 			chain.doFilter(request, response);
+			System.out.println("autenticação feita");
 		} else {
+			System.out.println("deu merda");
 			HttpServletResponse res = (HttpServletResponse) response;
 			res.sendRedirect("index.jsf");
 		}
@@ -44,9 +42,13 @@ public class UserCheckFilter implements Filter {
 	}
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-
+	public void init(FilterConfig filterConfig) throws ServletException {
+		this.filterConfig = filterConfig;
 	}
 
+	
+	@Override
+	public void destroy() {
+	}
+	
 }

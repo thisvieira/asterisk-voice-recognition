@@ -3,18 +3,21 @@ package edu.univas.tcc.asteriskvoz.managedBean;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
 
 import edu.univas.tcc.asteriskvoz.ejb.UsersBean;
 import edu.univas.tcc.asteriskvoz.entity.Users;
 
-@ManagedBean
 @ViewScoped
-@Stateless
+@ManagedBean
+@Stateful
 public class UsersMB {
 
 	private Users users = new Users();
@@ -26,9 +29,9 @@ public class UsersMB {
 		
 		try {
 			InitialContext ini = new InitialContext();
-			UsersBean usersBean = (UsersBean) ini
-					.lookup("java:module/UsersBean");
-
+			UsersBean usersBean = (UsersBean) ini.lookup("java:module/UsersBean");
+			FacesContext fc = FacesContext.getCurrentInstance();
+			
 			lstUsers = usersBean.findUsersLogin(users);
 			
 			for (Object[] ob : lstUsers) {
@@ -38,6 +41,9 @@ public class UsersMB {
 
 			if (users.getUser_name().equals(name) && users.getPassw().equals(password)) {
 				System.out.println("existe");
+				ExternalContext ec = fc.getExternalContext();
+				HttpSession session = (HttpSession) ec.getSession(false);
+				session.setAttribute("name", this.name);
 				return "asteriskconfig";
 
 			}
@@ -53,8 +59,7 @@ public class UsersMB {
 		
 		try {
 			InitialContext ini = new InitialContext();
-			UsersBean usersBean = (UsersBean) ini
-					.lookup("java:module/UsersBean");
+			UsersBean usersBean = (UsersBean) ini.lookup("java:module/UsersBean");
 			
 			usersBean.createUsers(users);
 			users = new Users();
