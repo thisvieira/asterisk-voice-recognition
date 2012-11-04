@@ -40,7 +40,6 @@ public class UsersMB {
 			}
 
 			if (users.getUser_name().equals(name) && users.getPassw().equals(password)) {
-				System.out.println("existe");
 				ExternalContext ec = fc.getExternalContext();
 				HttpSession session = (HttpSession) ec.getSession(false);
 				session.setAttribute("name", this.name);

@@ -1,18 +1,40 @@
 package edu.univas.tcc.asteriskvoz.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Sip {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column
 	private String name;
+	@Column
 	private String extenNumber;
+	@Column
 	private String secret;
-	private String callerid;
+	@Column
+	private String callid;
+	@Column
 	private String context;
+	@Column
 	private String host;
-	private String DefaultIP;
-	private String Type;
+	@Column
+	private String defaultip;
+	@Column
+	private String type;
+	@Column
 	private String port;
+	@Column
 	private String language;
+	@Column
 	private String disallow;
+	@Column
 	private String allow;
 	
 	public Sip(){
@@ -38,10 +60,10 @@ public class Sip {
 		this.secret = secret;
 	}
 	public String getCallerid() {
-		return callerid;
+		return callid;
 	}
 	public void setCallerid(String callerid) {
-		this.callerid = callerid;
+		this.callid = callerid;
 	}
 	public String getContext() {
 		return context;
@@ -56,16 +78,16 @@ public class Sip {
 		this.host = host;
 	}
 	public String getDefaultIP() {
-		return DefaultIP;
+		return defaultip;
 	}
 	public void setDefaultIP(String defaultIP) {
-		DefaultIP = defaultIP;
+		this.defaultip = defaultIP;
 	}
 	public String getType() {
-		return Type;
+		return type;
 	}
 	public void setType(String type) {
-		Type = type;
+		this.type = type;
 	}
 	public String getPort() {
 		return port;
@@ -90,6 +112,13 @@ public class Sip {
 	}
 	public void setAllow(String allow) {
 		this.allow = allow;
+	}
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

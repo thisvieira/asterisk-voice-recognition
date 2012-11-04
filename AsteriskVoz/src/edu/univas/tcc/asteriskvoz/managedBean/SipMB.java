@@ -4,10 +4,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Stateful;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 import org.asteriskjava.manager.AuthenticationFailedException;
 import org.asteriskjava.manager.ManagerConnection;
@@ -15,6 +19,7 @@ import org.asteriskjava.manager.ManagerConnectionFactory;
 import org.asteriskjava.manager.TimeoutException;
 import org.asteriskjava.manager.action.CommandAction;
 
+import edu.univas.tcc.asteriskvoz.ejb.SipBean;
 import edu.univas.tcc.asteriskvoz.entity.Sip;
 import edu.univas.tcc.asteriskvoz.exception.AsteriskClientException;
 
@@ -25,9 +30,19 @@ public class SipMB {
 
 	private Sip registerSip = new Sip();
 	private ManagerConnection managerConnection = null;
+	private List<Sip> lstSip = new ArrayList<Sip>();
 
 	public String registerSip(){
-
+		
+		try {
+			InitialContext ini = new InitialContext();
+			SipBean sipBean = (SipBean) ini.lookup("java:module/SipBean");
+			
+			sipBean.createSip(registerSip);
+		} catch (NamingException e1) {
+			e1.printStackTrace();
+		}
+		
 		File dir = new File("/etc/asterisk");
 		File arq = new File(dir, "sip.conf");
 
@@ -49,12 +64,27 @@ public class SipMB {
 			printExten.flush();
 
 			printExten.close();
+			
+			
+			registerSip = new Sip();
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		return null;
+	}
+	
+	public void listSip(){
+		try {
+			InitialContext ini = new InitialContext();
+			SipBean sipBean = (SipBean) ini.lookup("java:module/SipBean");
+			lstSip = sipBean.findSip();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	public String reloadSip() throws AsteriskClientException {
@@ -80,10 +110,10 @@ public class SipMB {
 			throw new AsteriskClientException(
 					"Tempo de conexão expirou", e);
 		}
-		System.out.println(managerConnection.getState());
 		CommandAction ca = new CommandAction("sip reload");
 		try {
 			managerConnection.sendAction(ca);
+			managerConnection.logoff();
 			return "sipconfirm";
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
@@ -118,5 +148,14 @@ public class SipMB {
 			org.asteriskjava.manager.ManagerConnection managerConnection) {
 		this.managerConnection = managerConnection;
 	}
+
+	public List<Sip> getLstSip() {
+		return lstSip;
+	}
+
+	public void setLstSip(List<Sip> lstSip) {
+		this.lstSip = lstSip;
+	}
+	
 
 }
