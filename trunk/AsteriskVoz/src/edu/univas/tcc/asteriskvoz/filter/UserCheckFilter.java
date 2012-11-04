@@ -32,9 +32,7 @@ public class UserCheckFilter implements Filter {
 		if (session.getAttribute("name") !=null || req.getRequestURI().endsWith("index.jsf")) {
 			
 			chain.doFilter(request, response);
-			System.out.println("autenticação feita");
 		} else {
-			System.out.println("deu merda");
 			HttpServletResponse res = (HttpServletResponse) response;
 			res.sendRedirect("index.jsf");
 		}

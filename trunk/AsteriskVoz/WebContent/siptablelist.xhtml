@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+     <h:head>
+     <title>Asterisk Voice Recognition</title>
+     <link rel="stylesheet" href="css/stylesip.css" type="text/css"/>
+     </h:head> 
+     
+     <h:body>
+     
+     <h1>Asterisk Voice Recognition</h1>
+	    <div id="menu">
+
+	    <ul>
+			<li class='active ' ><a href="asteriskconfig.jsf" title="Home">Home</a></li>
+			<li class='has-sub'><a title="Asterisk">Asterisk</a> 
+				<ul>
+				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal</a></li>
+				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais</a></li>
+				<li><a href="dialplanconfig.xhtml" title="Dialplan">Dialplan</a></li>
+				</ul>
+			</li>
+			<li><a href="verbioconfig.xhtml" title="Verbio">Verbio</a> </li>
+			<li><a href="#" title="Zoiper">Zoiper</a></li>
+			<li><a href="#" title="Atendimento">Atendimento Automático</a></li>
+			<li><a href="index.jsf" title="Sair">Sair</a></li>
+		</ul>
+	</div>
+	
+	
+		<h2>Lista de Ramais</h2>
+
+<div class="aba">
+	
+        <h:form id="ramaissip">
+        <h:dataTable class="linhasalternadas" value="#{sipMB.lstSip}" var="item">
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="ID" />
+        		</f:facet>
+        		<h:outputText value="#{item.id}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="Nome" />
+        		</f:facet>
+        		<h:outputText value="#{item.name}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="ramal" />
+        		</f:facet>
+        		<h:outputText value="#{item.extenNumber}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="CallerID" />
+        		</f:facet>
+        		<h:outputText value="#{item.callerid}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="Contexto" />
+        		</f:facet>
+        		<h:outputText value="#{item.context}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="Host" />
+        		</f:facet>
+        		<h:outputText value="#{item.host}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        		</f:facet>
+        		<h:commandLink value="editar" action="#"  />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        		</f:facet>
+        		<h:commandLink value="deletar" action="#"  />
+        	</h:column>
+        </h:dataTable>
+        </h:form>
+    </div>
+	
+     </h:body>
+
+</html>

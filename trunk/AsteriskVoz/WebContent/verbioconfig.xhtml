@@ -15,11 +15,15 @@
 	<div id="menu">
 
 	    <ul>
-			<li><a href="asteriskconfig.jsf" title="Home">Home</a></li>
-			<li><a href="dialplanconfig.xhtml" title="Dialplan">Dialplan</a> </li>
-			<li><a href="sipconfig.jsf" title="SIP">SIP</a> </li>
+			<li class='active ' ><a href="asteriskconfig.jsf" title="Home">Home</a></li>
+			<li class='has-sub'><a title="Asterisk">Asterisk</a> 
+				<ul>
+				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal</a></li>
+				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.lstSip}">Listar ramais</a></li>
+				<li><a href="dialplanconfig.xhtml" title="Dialplan">Dialplan</a></li>
+				</ul>
+			</li>
 			<li><a href="verbioconfig.xhtml" title="Verbio">Verbio</a> </li>
-			<li><a href="#" title="Terminais">Terminais</a></li>
 			<li><a href="#" title="Zoiper">Zoiper</a></li>
 			<li><a href="#" title="Atendimento">Atendimento Automático</a></li>
 			<li><a href="index.jsf" title="Sair">Sair</a></li>

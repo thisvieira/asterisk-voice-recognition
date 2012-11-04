@@ -3,6 +3,6 @@
 	<persistence-unit name="AsteriskVoz">
 	<jta-data-source>asteriskvoz_ds</jta-data-source>
 	<class>edu.univas.tcc.asteriskvoz.entity.Users</class>
-	
+	<class>edu.univas.tcc.asteriskvoz.entity.Sip</class>
 	 </persistence-unit>
 </persistence>
