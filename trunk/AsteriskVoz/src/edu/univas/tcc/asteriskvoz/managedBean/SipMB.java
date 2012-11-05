@@ -98,8 +98,7 @@ public class SipMB {
 
 		} catch (IllegalStateException e) {
 			throw new AsteriskClientException(
-					"Não foi possível estabelecer uma conexão com o servidor.",
-					e);
+					"Não foi possível estabelecer uma conexão com o servidor.", e);
 		} catch (IOException e) {
 			throw new AsteriskClientException(
 					"O servidor não foi encontrado no endereço informado.", e);

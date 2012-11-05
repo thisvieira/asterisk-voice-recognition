@@ -175,11 +175,12 @@ body {
 	margin: 20px 20px 0; 
 	list-style: none;
 }
-
+/*
 table.linhasalternadas {
-	border-collapse: collapse; /* CSS2 */
-    background: #FFFFF0;
+	border-collapse: collapse;
+    background: #FFF;
     border: solid green 1px;
+    
 }
 
 table.linhasalternadas td {
@@ -188,15 +189,56 @@ table.linhasalternadas td {
  
 table.linhasalternadas th {
     border: 1px solid black;
+    background: #FFA500;
+    font-size: 20px;
 }
 
-table.linhasalternadas tr:nth-child(even) /* CSS3 */ {
+table.linhasalternadas tr:nth-child(even) {
 	border: 1px solid black;
 	position: relative;
 	table-layout: auto;
     background: #F0FFFF;
 }
+*/
 
+.tabela {
+     border: 1px solid green;
+}
+
+ 
+
+/* Definição de estilos para linha de cabeçalho da tabela*/
+
+.headertable {
+   text-align: center;
+   font: 11px Arial, sans-serif;
+   font-weight: bold;
+   color: Snow;
+   background:  #CC6600;
+   font-size: 22px;
+
+}
+
+ 
+
+/* Definição de estilos para coluna */
+
+.first {
+   text-align: center;
+   font: 11px Arial, sans-serif;
+   background: #FFCC33;
+}
+
+ 
+
+/* Definição de estilos para coluna */
+
+.last {
+   font: 11px Arial, sans-serif;
+   text-align: center;
+   background: #FF9900;
+
+}
 
 .itens a {
     float: left;
