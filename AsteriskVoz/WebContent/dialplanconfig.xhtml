@@ -20,43 +20,42 @@
 			<li class='active ' ><a href="asteriskconfig.jsf" title="Home">Home</a></li>
 			<li class='has-sub'><a title="Asterisk">Asterisk</a> 
 				<ul>
-				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal</a></li>
-				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.lstSip}">Listar ramais</a></li>
-				<li><a href="dialplanconfig.xhtml" title="Dialplan">Dialplan</a></li>
+				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal SIP</a></li>
+				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais SIP</a></li>
+				<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
 				</ul>
 			</li>
-			<li><a href="verbioconfig.xhtml" title="Verbio">Verbio</a> </li>
+			<li class='has-sub' ><a title="Verbio">Verbio</a> 
+				<ul>
+				<li><a href="verbioconfig.jsf"  title="Configurar">Configurar verbio TTS</a></li>
+				</ul>
+			</li>
 			<li><a href="#" title="Zoiper">Zoiper</a></li>
 			<li><a href="#" title="Atendimento">Atendimento Automático</a></li>
 			<li><a href="index.jsf" title="Sair">Sair</a></li>
 		</ul>
 	</div>
 
-	<ul class="itens">
-		<li class="tab"><a href="#aba1">Cadastro</a></li>
-		<li class="tab"><a href="#aba2">Tabela</a></li>
-	</ul>
-
-	<div class="aba">
-		<div id="aba1">
-			Cadastro Dialplan
-			<form action="" method="post">
-				<fieldset>
-					<label>Contexto: <input type="text" name="context" />
-					</label> <label>Extension: <input type="text" name="extension" />
-					</label> <label>Prioridade: <input type="text" name="priority" />
-					</label> <label>App: <input type="text" name="app" />
-					</label> <label>AppData: <input type="text" name="appdata" />
-					</label> <label><input type="submit" name="submit" /> </label>
-				</fieldset>
-			</form>
-		</div>
-		<div id="aba2">Tabela Dialplan</div>
-
-	</div>
+	<h2>Configuração Dialplan</h2>
 
 
+<div class="aba">
+		<h:form id="dialplanconfig">
+		    <h:outputLabel class="nameLabel" value="Contexto: " for="context" />
+			        <h:inputText id="context" value="#"/>
+			        <h:outputLabel class="nameLabel" value="Extensions: " for="exten" />
+			        <h:inputText id="exten" value="#"/>
+			        <h:outputLabel class="nameLabel" value="Prioridade: " for="priority" />
+			        <h:inputText id="priority" value="#"/>
+			        <h:outputLabel class="nameLabel" value="App: " for="app" />
+			        <h:inputText id="app" value="#"/>
+			        <h:outputLabel class="nameLabel" value="AppData: " for="appdata" />
+			        <h:inputText id="appdata" value="#"/>
+			        <h:commandButton class="nameLabel" value="Cadastrar" action="#"/>
 
+			</h:form>	
+    </div>
+		
 </h:body>
 
 </html>

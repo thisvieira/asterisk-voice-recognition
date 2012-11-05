@@ -20,26 +20,24 @@
 				<ul>
 				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal</a></li>
 				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.lstSip}">Listar ramais</a></li>
-				<li><a href="dialplanconfig.xhtml" title="Dialplan">Dialplan</a></li>
+				<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
 				</ul>
 			</li>
-			<li><a href="verbioconfig.xhtml" title="Verbio">Verbio</a> </li>
+			<li class='has-sub' ><a title="Verbio">Verbio</a> 
+				<ul>
+				<li><a href="verbioconfig.jsf"  title="Configurar">Configurar verbio TTS</a></li>
+				</ul>
+			</li>
 			<li><a href="#" title="Zoiper">Zoiper</a></li>
 			<li><a href="#" title="Atendimento">Atendimento Automático</a></li>
 			<li><a href="index.jsf" title="Sair">Sair</a></li>
 		</ul>
 	</div>
 
-	<ul class="itens">
-		<li class="tab"><a href="#aba1">Cadastro</a></li>
-		<li class="tab"><a href="#aba2">Tabela</a></li>
-	</ul>
+	<h2>Configuração Verbio TTS</h2>
 
 	<div class="aba">
-		<div id="aba1">
-			Cadastro Verbio TTS
-			<form action="" method="post">
-				<fieldset>
+			<form id="verbioconfig">
 					<label> Primary Vox Server: <input type="text" name="primary" />
 					</label> <label>Backup Vox Server: <input type="text" name="backup" />
 					</label> <label>Default Language: <input type="text" name="language" />
@@ -48,15 +46,8 @@
 					</label> <label>Default Config: <input type="text" name="config" />
 					</label> <label>Grammar Path: <input type="text" name="grammar" />
 					</label> <label><input type="submit" name="submit" /> </label>
-				</fieldset>
 			</form>
 		</div>
-		<div id="aba2">Tabela Verbio</div>
-
-	</div>
-
-
-
 </h:body>
 
 </html>
