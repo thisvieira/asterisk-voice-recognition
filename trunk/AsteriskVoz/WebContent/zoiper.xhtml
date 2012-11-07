@@ -8,7 +8,7 @@
       
      <h:head>
      <title>Asterisk Voice Recognition</title>
-     <link rel="stylesheet" href="css/styleconfig.css" type="text/css"/>
+     <link rel="stylesheet" href="css/stylezoiper.css" type="text/css"/>
      </h:head> 
      
      <h:body>
@@ -36,10 +36,14 @@
 		</ul>
 	</div>
 	
-	<h:form class="info">
 	
-	<h2>Ramal SIP cadastrado e carregado no sistema com sucesso</h2>
-		</h:form>
+	
+	    <fieldset>  	
+     	<h:form>
+     		<h:commandButton class="zoiper" value="zoiper" action="#{zoiperMB.exeZoiper()}"/>
+     	</h:form>
+     	</fieldset>
+	
 	
      </h:body>
 
