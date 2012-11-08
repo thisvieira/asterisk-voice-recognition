@@ -8,7 +8,7 @@
       
      <h:head>
      <title>Asterisk Voice Recognition</title>
-     <link rel="stylesheet" href="css/styleconfig.css" type="text/css"/>
+     <link rel="stylesheet" href="css/styleasterisk.css" type="text/css"/>
      </h:head> 
      
      <h:body>
@@ -37,10 +37,16 @@
 		</ul>
 	</div>
 	
-	<h:form class="info">
 	
-	<h2>Ramal SIP cadastrado e carregado no sistema com sucesso</h2>
-		</h:form>
+	
+	    <fieldset>  	
+     	<h:form>
+     		<h:commandButton class="asterisk" value="Inicar Asterisk e Verbio" action="#{asteriskMB.exeAsterisk()}"/>
+     		<h:commandButton class="asterisk" value="Iniciar Central CLI" action="#{asteriskMB.initCLI()}"/>
+    		<h:commandButton class="asterisk" value="Finalizar Asterisk" action="#{asteriskMB.endCLI()}"/>
+     	</h:form>
+     	</fieldset>
+	
 	
      </h:body>
 
