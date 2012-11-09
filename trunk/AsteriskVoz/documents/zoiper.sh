@@ -1,5 +1,5 @@
 #! /bin/bash
 
-cd /home/altieres/Downloads
+cd /home/rafael/Projeto
 ./zoiper
 
