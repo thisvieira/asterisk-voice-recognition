@@ -68,4 +68,39 @@ public class AsteriskMB {
 		e.printStackTrace();
 	}
 	}
+	
+	public void loadVerbio() {
+		
+	Process p;
+	try {
+
+		p = Runtime.getRuntime().exec("/home/altieres/initverbio.sh");
+		p.waitFor();
+		
+		
+	} catch (IOException e) {
+		e.printStackTrace();
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+
+	
+	public void unloadVerbio() {
+		
+	Process p;
+	try {
+
+		p = Runtime.getRuntime().exec("/home/altieres/endverbio.sh");
+		p.waitFor();
+		
+		
+	} catch (IOException e) {
+		e.printStackTrace();
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
 }
