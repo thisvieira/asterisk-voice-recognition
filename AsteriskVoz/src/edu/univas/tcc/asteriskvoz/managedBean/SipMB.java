@@ -88,6 +88,7 @@ public class SipMB {
 	}
 
 	public String reloadSip() throws AsteriskClientException {
+		boolean error = false;
 		try {
 
 			ManagerConnectionFactory managerConnectionFactory = new ManagerConnectionFactory(
@@ -100,8 +101,9 @@ public class SipMB {
 			throw new AsteriskClientException(
 					"Não foi possível estabelecer uma conexão com o servidor.", e);
 		} catch (IOException e) {
-			throw new AsteriskClientException(
-					"O servidor não foi encontrado no endereço informado.", e);
+			//throw new AsteriskClientException(
+			//		"O servidor não foi encontrado no endereço informado.", e);
+			error = true;
 		} catch (AuthenticationFailedException e) {
 			throw new AsteriskClientException(
 					"Usuário ou senha inválidos para o servidor localhost.", e);
@@ -109,9 +111,11 @@ public class SipMB {
 			throw new AsteriskClientException(
 					"Tempo de conexão expirou", e);
 		}
+
 		CommandAction ca = new CommandAction("sip reload");
 		try {
 			managerConnection.sendAction(ca);
+			
 			managerConnection.logoff();
 			return "sipconfirm";
 		} catch (IllegalArgumentException e) {
@@ -126,6 +130,10 @@ public class SipMB {
 		} catch (TimeoutException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		if(error){
+			return "startasterisk";
 		}
 		return null;
 	}

@@ -18,7 +18,7 @@ public class ZoiperMB {
 		Process p;
 		try {
 
-			p = Runtime.getRuntime().exec("/home/altieres/zoiper.sh");
+			p = Runtime.getRuntime().exec("/home/rafael/workspace/AsteriskVoz/documents/zoiper.sh");
 			p.waitFor();
 			
 			
