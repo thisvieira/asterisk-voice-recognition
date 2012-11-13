@@ -31,6 +31,7 @@ public class SipMB {
 	private Sip registerSip = new Sip();
 	private ManagerConnection managerConnection = null;
 	private List<Sip> lstSip = new ArrayList<Sip>();
+	private List<Sip> editSip = new ArrayList<Sip>();
 
 	public String registerSip(){
 		
@@ -137,6 +138,30 @@ public class SipMB {
 		}
 		return null;
 	}
+	
+	public String editActionSip(Sip sip){
+		
+		try {
+			InitialContext ini = new InitialContext();
+			SipBean sipBean = (SipBean) ini.lookup("java:module/SipBean");
+			editSip = sipBean.findEditSip(sip.getId());
+			lstEditSip(editSip);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return "sipeditconfig";
+	}
+	
+
+	public void lstEditSip(List<Sip> editSip2) {
+		
+		
+		editSip.addAll(editSip2);
+		
+		
+	}
 
 	public Sip getRegisterSip() {
 
@@ -163,6 +188,17 @@ public class SipMB {
 	public void setLstSip(List<Sip> lstSip) {
 		this.lstSip = lstSip;
 	}
+
+	public List<Sip> getEditSip() {
+		return editSip;
+	}
+
+	public void setEditSip(List<Sip> editSip) {
+		this.editSip = editSip;
+	}
 	
+
+	
+
 
 }

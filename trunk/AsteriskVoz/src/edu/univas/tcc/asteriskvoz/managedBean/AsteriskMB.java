@@ -6,6 +6,14 @@ import javax.ejb.Stateful;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.asteriskjava.manager.AuthenticationFailedException;
+import org.asteriskjava.manager.ManagerConnection;
+import org.asteriskjava.manager.ManagerConnectionFactory;
+import org.asteriskjava.manager.TimeoutException;
+import org.asteriskjava.manager.action.CommandAction;
+
+import edu.univas.tcc.asteriskvoz.exception.AsteriskClientException;
+
 
 @ViewScoped
 @ManagedBean
@@ -17,21 +25,57 @@ public class AsteriskMB {
 	 * NOTA: primeiro tem que dar chmod 777 em /var/run/asterisk/asterisk.pid
 	 * e também para /var/run/asterisk/asterisk.ctl
 	 */
-	public void exeAsterisk() {
-		
-		Process p;
+	private ManagerConnection managerConnection = null;
+	
+	public String restartAsterisk() throws AsteriskClientException {
+		boolean error = false;
 		try {
 
-			p = Runtime.getRuntime().exec("/home/altieres/initasterisk.sh");
-			p.waitFor();
-			
-			
+			ManagerConnectionFactory managerConnectionFactory = new ManagerConnectionFactory(
+					"localhost", "manager", "pa55w0rd");
+			managerConnection = managerConnectionFactory
+					.createManagerConnection();
+			managerConnection.login();
+
+		} catch (IllegalStateException e) {
+			throw new AsteriskClientException(
+					"Não foi possível estabelecer uma conexão com o servidor.", e);
 		} catch (IOException e) {
+			//throw new AsteriskClientException(
+			//		"O servidor não foi encontrado no endereço informado.", e);
+			error = true;
+		} catch (AuthenticationFailedException e) {
+			throw new AsteriskClientException(
+					"Usuário ou senha inválidos para o servidor localhost.", e);
+		} catch (TimeoutException e) {
+			throw new AsteriskClientException(
+					"Tempo de conexão expirou", e);
+		}
+
+		CommandAction ca = new CommandAction("core restart now");
+		try {
+			managerConnection.sendAction(ca);
+			
+			managerConnection.logoff();
+			return "restartconfirm";
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (InterruptedException e) {
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimeoutException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(error){
+			return "startasterisk";
+		}
+		return null;
 	}
 	
 	public void initCLI() {
@@ -39,7 +83,7 @@ public class AsteriskMB {
 		Process p;
 		try {
 
-			p = Runtime.getRuntime().exec("/home/altieres/initcli.sh");
+			p = Runtime.getRuntime().exec("/home/rafael/initcli.sh");
 			p.waitFor();
 			
 			
@@ -57,7 +101,7 @@ public class AsteriskMB {
 	Process p;
 	try {
 
-		p = Runtime.getRuntime().exec("/home/altieres/endcli.sh");
+		p = Runtime.getRuntime().exec("/home/rafael/endcli.sh");
 		p.waitFor();
 		
 		
@@ -69,38 +113,54 @@ public class AsteriskMB {
 	}
 	}
 	
-	public void loadVerbio() {
-		
-	Process p;
-	try {
+	public String loadVerbio() throws AsteriskClientException {
+		boolean error = false;
+		try {
 
-		p = Runtime.getRuntime().exec("/home/altieres/initverbio.sh");
-		p.waitFor();
-		
-		
-	} catch (IOException e) {
-		e.printStackTrace();
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	}
+			ManagerConnectionFactory managerConnectionFactory = new ManagerConnectionFactory(
+					"localhost", "manager", "pa55w0rd");
+			managerConnection = managerConnectionFactory
+					.createManagerConnection();
+			managerConnection.login();
 
-	
-	public void unloadVerbio() {
-		
-	Process p;
-	try {
+		} catch (IllegalStateException e) {
+			throw new AsteriskClientException(
+					"Não foi possível estabelecer uma conexão com o servidor.", e);
+		} catch (IOException e) {
+			//throw new AsteriskClientException(
+			//		"O servidor não foi encontrado no endereço informado.", e);
+			error = true;
+		} catch (AuthenticationFailedException e) {
+			throw new AsteriskClientException(
+					"Usuário ou senha inválidos para o servidor localhost.", e);
+		} catch (TimeoutException e) {
+			throw new AsteriskClientException(
+					"Tempo de conexão expirou", e);
+		}
 
-		p = Runtime.getRuntime().exec("/home/altieres/endverbio.sh");
-		p.waitFor();
+		CommandAction ca = new CommandAction("module load app_verbio_speech.so");
+		try {
+			managerConnection.sendAction(ca);
+			
+			managerConnection.logoff();
+			return "restartconfirm";
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-	} catch (IOException e) {
-		e.printStackTrace();
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+		if(error){
+			return "startasterisk";
+		}
+		return null;
 	}
 }
