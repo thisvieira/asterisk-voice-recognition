@@ -24,6 +24,7 @@
 				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais SIP</a></li>
 				<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
 				<li><a href="initasterisk.jsf" title="Asterisk">Asterisk</a></li>
+				<li><a href="restartasterisk.jsf" title="Reiniciar Asterisk" >Reiniciar Asterisk</a></li>
 				</ul>
 			</li>
 			<li class='has-sub' ><a title="Verbio">Verbio</a> 
@@ -55,7 +56,7 @@
         		<f:facet name="header">
         			<h:outputText value="Nome" />
         		</f:facet>
-        		<h:outputText value="#{item.name}" />
+        		<h:outputText value="#{item.name}"/>
         	</h:column>
         	<h:column>
         		<f:facet name="header">
@@ -84,7 +85,7 @@
         	<h:column>
         		<f:facet name="header">
         		</f:facet>
-        		<h:commandLink value="editar" action="#"  />
+        		<h:commandLink value="editar" action="#{sipMB.editActionSip(item)}"  />
         	</h:column>
         	<h:column>
         		<f:facet name="header">
@@ -92,6 +93,52 @@
         		<h:commandLink value="deletar" action="#"  />
         	</h:column>
         </h:dataTable>
+        </h:form>
+  
+    
+    <h2>Editar Ramal Sip</h2>
+    
+
+        <h:form id="editramaissip">
+        <h:dataTable styleClass="tabela" headerClass="headertable" columnClasses="first, last"
+         value="#{sipMB.editSip}" var="item">
+        	<h:column class="id">
+        		<f:facet name="header">
+        			<h:outputText value="ID" />
+        		</f:facet>
+        		<h:outputText value="#{item.id}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="Nome" />
+        		</f:facet>
+        		<h:inputText size="200" value="#{item.name}"/>
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="Ramal" />
+        		</f:facet>
+        		<h:inputText size="200" value="#{item.extenNumber}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="CallerID" />
+        		</f:facet>
+        		<h:inputText size="200" value="#{item.callerid}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="Contexto" />
+        		</f:facet>
+        		<h:inputText size="200" value="#{item.context}" />
+        	</h:column>
+        	<h:column>
+        		<f:facet name="header">
+        			<h:outputText value="Host" />
+        		</f:facet>
+        		<h:inputText size="200" value="#{item.host}" />
+        	</h:column>
+         </h:dataTable>
         </h:form>
     </div>
 	

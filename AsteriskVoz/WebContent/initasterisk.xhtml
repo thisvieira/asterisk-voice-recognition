@@ -24,6 +24,7 @@
 				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais SIP</a></li>
 				<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
 				<li><a href="initasterisk.jsf" title="Asterisk">Asterisk</a></li>
+				<li><a href="restartasterisk.jsf" title="Reiniciar Asterisk" >Reiniciar Asterisk</a></li>
 				</ul>
 			</li>
 			<li class='has-sub' ><a title="Verbio">Verbio</a> 
@@ -38,18 +39,16 @@
 	</div>
 	
 	
-	
-	    <fieldset>  	
-     	<h:form>
-     		<h:commandButton class="asterisk" value="Inicar Asterisk e Verbio" action="#{asteriskMB.exeAsterisk()}"/>
-     		<h:commandButton class="asterisk" value="Iniciar Central CLI" action="#{asteriskMB.initCLI()}"/>
-    		<h:commandButton class="asterisk" value="Finalizar Asterisk" action="#{asteriskMB.endCLI()}"/>
-    		<h:commandButton class="asterisk" value="Load Verbio" action="#{asteriskMB.loadVerbio()}"/>
-    		<h:commandButton class="asterisk" value="Unload Verbio" action="#{asteriskMB.unloadVerbio()}"/>
-     	</h:form>
-     	</fieldset>
+<div class="aba">
+		<h:form id="asteriskaction">
+		<h2>Comandos Asterisk</h2>
+		<h:commandButton class="asterisk" value="Carregar SIP" action="#{sipMB.reloadSip()}"/>
+		<h:commandButton class="asterisk" value="Reiniciar Asterisk" action="#{asteriskMB.restartAsterisk()}"/>
+    	<h:commandButton class="asterisk" value="Load Verbio" action="#{asteriskMB.loadVerbio()}"/>
+    	<h:commandButton class="asterisk" value="Unload Verbio" action="#{asteriskMB.unloadVerbio()}"/>			
+	</h:form>	
+    </div>
 	
 	
      </h:body>
-
 </html>

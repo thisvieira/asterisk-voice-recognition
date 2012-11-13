@@ -38,11 +38,11 @@
 		</ul>
 	</div>
 	
-	<h2>Cadastrar ramal SIP</h2>
+	<h2>Editar ramal SIP</h2>
 <div class="aba">
-		<h:form id="ramaissip">
+		<h:form id="ramaissip" value="#{sipMB.editSip}" var="edit">
 		    <h:outputLabel class="nameLabel" value="Nome: " for="name" />
-			<h:inputText id="name" value="#{sipMB.registerSip.name}"/>
+			<h:inputText id="name" value="#{edit.name}"/>
 			<h:outputLabel class="nameLabel" value="Ramal: " for="exten" />
 			<h:inputText id="exten" value="#{sipMB.registerSip.extenNumber}"/>
 			<h:outputLabel class="nameLabel" value="Senha: " for="password" />

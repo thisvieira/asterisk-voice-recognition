@@ -22,5 +22,9 @@ public class SipBean {
 	public List<Sip> findSip() {
 		return em.createQuery("FROM Sip").getResultList();
 	}
+	@SuppressWarnings("unchecked")
+	public List<Sip> findEditSip(int id) {
+		return em.createQuery("FROM Sip where id = " + id).getResultList();
+	}
 
 }
