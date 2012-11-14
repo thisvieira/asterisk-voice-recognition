@@ -118,7 +118,7 @@ public class SipMB {
 			managerConnection.sendAction(ca);
 			
 			managerConnection.logoff();
-			return "sipconfirm";
+			return "restartconfirm";
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -134,7 +134,7 @@ public class SipMB {
 		}
 		
 		if(error){
-			return "startasterisk";
+			return "commanderrorasterisk";
 		}
 		return null;
 	}
@@ -145,23 +145,28 @@ public class SipMB {
 			InitialContext ini = new InitialContext();
 			SipBean sipBean = (SipBean) ini.lookup("java:module/SipBean");
 			editSip = sipBean.findEditSip(sip.getId());
-			lstEditSip(editSip);
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		return "sipeditconfig";
+		return null;
 	}
 	
+	public String deleteExtenSip(Sip sip){
+		
+		try {
+			InitialContext ini = new InitialContext();
+			SipBean sipBean = (SipBean) ini.lookup("java:module/SipBean");
+			sipBean.deleteSip(sip.getId());
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-	public void lstEditSip(List<Sip> editSip2) {
-		
-		
-		editSip.addAll(editSip2);
-		
-		
+		return "siptablelist";
 	}
+	
 
 	public Sip getRegisterSip() {
 
