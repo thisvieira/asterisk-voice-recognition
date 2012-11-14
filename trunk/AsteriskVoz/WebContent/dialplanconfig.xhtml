@@ -23,13 +23,12 @@
 				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal SIP</a></li>
 				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais SIP</a></li>
 				<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
-				<li><a href="initasterisk.jsf" title="Asterisk">Asterisk</a></li>
-				<li><a href="restartasterisk.jsf" title="Reiniciar Asterisk" >Reiniciar Asterisk</a></li>
+				<li><a href="initasterisk.jsf" title="Comandos Asterisk">Comandos Asterisk</a></li>
 				</ul>
 			</li>
 			<li class='has-sub' ><a title="Verbio">Verbio</a> 
 				<ul>
-				<li><a href="verbioconfig.jsf"  title="Configurar">Configurar verbio TTS</a></li>
+				<li><a href="verbioconfig.jsf"  title="Configurar">Configurar verbio</a></li>
 				</ul>
 			</li>
 			<li><a href="zoiper.jsf" title="Zoiper">Zoiper</a></li>
@@ -44,16 +43,16 @@
 <div class="aba">
 		<h:form id="dialplanconfig">
 		    <h:outputLabel class="nameLabel" value="Contexto: " for="context" />
-			        <h:inputText id="context" value="#"/>
+			        <h:inputText id="context" value="#{dialplanMB.exten.context}"/>
 			        <h:outputLabel class="nameLabel" value="Extensions: " for="exten" />
-			        <h:inputText id="exten" value="#"/>
+			        <h:inputText id="exten" value="#{dialplanMB.exten.extensions}"/>
 			        <h:outputLabel class="nameLabel" value="Prioridade: " for="priority" />
-			        <h:inputText id="priority" value="#"/>
+			        <h:inputText id="priority" value="#{dialplanMB.exten.priorit}"/>
 			        <h:outputLabel class="nameLabel" value="App: " for="app" />
-			        <h:inputText id="app" value="#"/>
+			        <h:inputText id="app" value="#{dialplanMB.exten.app}"/>
 			        <h:outputLabel class="nameLabel" value="AppData: " for="appdata" />
-			        <h:inputText id="appdata" value="#"/>
-			        <h:commandButton class="nameLabel" value="Cadastrar" action="#"/>
+			        <h:inputText id="appdata" value="#{dialplanMB.exten.appData}"/>
+			        <h:commandButton class="nameLabel" value="Enviar" action="#{dialplanMB.registerExtensions()}"/>
 
 			</h:form>	
     </div>
