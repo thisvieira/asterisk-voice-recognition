@@ -1,0 +1,216 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.6
+-- Dumped by pg_dump version 9.1.6
+-- Started on 2012-11-14 16:15:01 BRST
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 165 (class 3079 OID 11684)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1918 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- TOC entry 163 (class 1259 OID 16424)
+-- Dependencies: 5
+-- Name: registersip_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE registersip_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.registersip_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 1919 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: registersip_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('registersip_id_seq', 12, true);
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 164 (class 1259 OID 16464)
+-- Dependencies: 1900 5
+-- Name: sip; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE sip (
+    id integer DEFAULT nextval('registersip_id_seq'::regclass) NOT NULL,
+    name character varying(50) NOT NULL,
+    extennumber character varying(4) NOT NULL,
+    secret character varying(10) NOT NULL,
+    callid character varying(50) NOT NULL,
+    context character varying(20) NOT NULL,
+    host character varying(20) NOT NULL,
+    defaultip character varying(30) NOT NULL,
+    type character varying(20) NOT NULL,
+    port character varying(10),
+    language character varying(10) NOT NULL,
+    disallow character varying NOT NULL,
+    allow character varying NOT NULL
+);
+
+
+ALTER TABLE public.sip OWNER TO postgres;
+
+--
+-- TOC entry 161 (class 1259 OID 16397)
+-- Dependencies: 5
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 1920 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('users_id_seq', 1, true);
+
+
+--
+-- TOC entry 162 (class 1259 OID 16399)
+-- Dependencies: 1899 5
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer DEFAULT nextval('users_id_seq'::regclass) NOT NULL,
+    user_name character varying(50) NOT NULL,
+    passw character varying(32) NOT NULL
+);
+
+
+ALTER TABLE public.users OWNER TO postgres;
+
+--
+-- TOC entry 1910 (class 0 OID 16464)
+-- Dependencies: 164 1911
+-- Data for Name: sip; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY sip (id, name, extennumber, secret, callid, context, host, defaultip, type, port, language, disallow, allow) FROM stdin;
+1	Altieres	9008	9008	altieres <9008>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+2	Rosiane	9003	9003	rosiane <9003>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+4	Rosiane	9010	9010	rosiane <9010>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+5	Cesar	9007	9007	cesar <9007>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+7	Guto	9030	9030	guto <9030>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+8	Edy	9032	9032	edy <9032>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+9	Teste	9033	9033	teste <9033>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+10	Teste2	9034	9034	teste2 <9034>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+11	Teste3	9035	9035	teste3 <9035>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+12	Marcio	9040	9040	marcio <9040>	ramais	dynamic	0.0.0.0	friend		pt_br	all	alaw
+\.
+
+
+--
+-- TOC entry 1909 (class 0 OID 16399)
+-- Dependencies: 162 1911
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY users (id, user_name, passw) FROM stdin;
+1	Rafael	12345
+\.
+
+
+--
+-- TOC entry 1906 (class 2606 OID 16472)
+-- Dependencies: 164 164 1912
+-- Name: id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY sip
+    ADD CONSTRAINT id_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1902 (class 2606 OID 16404)
+-- Dependencies: 162 162 1912
+-- Name: pk_users; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT pk_users PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1908 (class 2606 OID 16474)
+-- Dependencies: 164 164 1912
+-- Name: uk_number_ramal; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY sip
+    ADD CONSTRAINT uk_number_ramal UNIQUE (extennumber);
+
+
+--
+-- TOC entry 1904 (class 2606 OID 16406)
+-- Dependencies: 162 162 1912
+-- Name: uk_users_user_name; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT uk_users_user_name UNIQUE (user_name);
+
+
+--
+-- TOC entry 1917 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2012-11-14 16:15:02 BRST
+
+--
+-- PostgreSQL database dump complete
+--
+
