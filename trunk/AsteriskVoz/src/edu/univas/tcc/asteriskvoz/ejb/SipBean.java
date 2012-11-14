@@ -26,5 +26,10 @@ public class SipBean {
 	public List<Sip> findEditSip(int id) {
 		return em.createQuery("FROM Sip where id = " + id).getResultList();
 	}
+	
+	public void deleteSip(int id){
+		em.createQuery("delete FROM Sip where id = " + id);
+
+	}
 
 }
