@@ -19,7 +19,7 @@ h2 {
 }
 
 #editramaissip {
-	width: 1000px;
+	width: 1235px;
 	padding: 20px;
 	background: #f0f0f0;
 	overflow: auto;
@@ -301,6 +301,35 @@ table.linhasalternadas tr:nth-child(even) {
 }
 
 .aba div .target {
+	display: block;
+}
+
+.aba {
+	padding: 0 380px;
+	width: 500px;
+	clear: both;
+	position: relative;
+}
+
+.aba1 div {
+	background: white;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 10px;
+	width: 100%;
+	display: none;
+	position: absolute;
+}
+
+.aba1 div:first-child {
+	display: block;
+}
+
+.aba1 div:target {
+	display: block;
+}
+
+.aba1 div .target {
 	display: block;
 }
 
