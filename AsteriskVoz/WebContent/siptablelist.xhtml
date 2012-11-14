@@ -97,7 +97,7 @@
     
     <h2>Editar Ramal Sip</h2>
     
-<div>
+<div class="aba1">
         <h:form id="editramaissip">
         <h:dataTable styleClass="tabela" headerClass="headertable" columnClasses="first, last"
          value="#{sipMB.editSip}" var="item">
@@ -138,6 +138,9 @@
         		<h:inputText size="200" value="#{item.host}" />
         	</h:column>
          </h:dataTable>
+         
+              		<h:commandButton class="nameLabel" value="Enviar" action="#"/>          
+         
         </h:form>
     </div>
 	
