@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import edu.univas.tcc.asteriskvoz.managedBean.UsersMB;
+
 @WebFilter(servletNames={"Faces Servlet"})
 public class UserCheckFilter implements Filter {
 	
@@ -32,6 +34,11 @@ public class UserCheckFilter implements Filter {
 		if (session.getAttribute("name") !=null || req.getRequestURI().endsWith("index.jsf")) {
 			
 			chain.doFilter(request, response);
+			
+		} else if (session.getAttribute("name") == null) {
+			UsersMB usersMB = new UsersMB();
+			usersMB.createUsers();
+			
 		} else {
 			HttpServletResponse res = (HttpServletResponse) response;
 			res.sendRedirect("index.jsf");

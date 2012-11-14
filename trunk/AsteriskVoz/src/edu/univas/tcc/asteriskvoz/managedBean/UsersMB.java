@@ -44,7 +44,8 @@ public class UsersMB {
 				HttpSession session = (HttpSession) ec.getSession(false);
 				session.setAttribute("name", this.name);
 				return "asteriskconfig";
-
+			} else {
+				return "register";
 			}
 
 		} catch (NamingException e) {
@@ -54,16 +55,17 @@ public class UsersMB {
 		return "loginerror";
 	}
 	
-	public String creatUsers(){
+	public String createUsers(){
 		
 		try {
 			InitialContext ini = new InitialContext();
 			UsersBean usersBean = (UsersBean) ini.lookup("java:module/UsersBean");
 			
-			usersBean.createUsers(users);
 			users = new Users();
+			usersBean.createUsers(users);
+			System.out.println("usuario cadastrado");
 		} catch (NamingException e) {
-			// TODO Auto-generated catch block
+			System.out.println("usuario nao cadastrado");
 			e.printStackTrace();
 		}
 		
@@ -85,7 +87,5 @@ public class UsersMB {
 	public void setLstUsers(List<Object[]> lstUsers) {
 		this.lstUsers = lstUsers;
 	}
-
-	
 
 }

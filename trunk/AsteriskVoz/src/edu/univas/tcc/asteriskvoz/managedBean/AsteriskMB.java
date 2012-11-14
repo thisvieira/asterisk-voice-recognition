@@ -83,7 +83,7 @@ public class AsteriskMB {
 		Process p;
 		try {
 
-			p = Runtime.getRuntime().exec("/home/rafael/initcli.sh");
+			p = Runtime.getRuntime().exec("/home/altieres/initcli.sh");
 			p.waitFor();
 			
 			
@@ -101,7 +101,7 @@ public class AsteriskMB {
 	Process p;
 	try {
 
-		p = Runtime.getRuntime().exec("/home/rafael/endcli.sh");
+		p = Runtime.getRuntime().exec("/home/altieres/endcli.sh");
 		p.waitFor();
 		
 		

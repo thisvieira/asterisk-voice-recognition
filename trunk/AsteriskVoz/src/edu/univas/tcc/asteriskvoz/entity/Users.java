@@ -40,9 +40,4 @@ public class Users {
 	public void setPassw(String passw) {
 		this.passw = passw;
 	}
-	
-	
-
-	
-
 }
