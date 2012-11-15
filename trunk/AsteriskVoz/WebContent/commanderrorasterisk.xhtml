@@ -16,24 +16,28 @@
 	<h1>Asterisk Voice Recognition</h1>
 	<div id="menu">
 
-		<ul>
-			<li class='active '><a href="asteriskconfig.jsf" title="Home">Home</a></li>
-			<li class='has-sub'><a title="Asterisk">Asterisk</a>
+	    <ul>
+			<li class='active ' ><a href="asteriskconfig.jsf" title="Home">Home</a></li>
+			<li class='has-sub'><a title="Asterisk">Asterisk</a> 
 				<ul>
-					<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal SIP</a></li>
-					<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais SIP</a></li>
-					<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
-					<li><a href="initasterisk.jsf" title="Comandos Asterisk">Comandos Asterisk</a></li>
-				</ul></li>
-			<li class='has-sub'><a title="Verbio">Verbio</a>
+				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal SIP</a></li>
+				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais SIP</a></li>
+				<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
+				<li><a href="initasterisk.jsf" title="Comandos Asterisk">Comandos Asterisk</a></li>
+				</ul>
+			</li>
+			<li class='has-sub' ><a title="Verbio">Verbio</a> 
 				<ul>
-					<li><a href="verbioconfig.jsf" title="Configurar">Configurar verbio</a></li>
-				</ul></li>
+				<li><a href="verbioconfig.jsf"  title="Configurar">Configurar verbio</a></li>
+				<li><a href="verbiotext.jsf"  title="Verbio Texto">Verbio Texto</a></li>
+				<li><a href="verbiodialplan.jsf"  title="Mensagem Atendimento">Mensagem Atendimento</a></li>
+				</ul>
+			</li>
 			<li><a href="zoiper.jsf" title="Zoiper">Zoiper</a></li>
+			<li><a href="register.jsf" title="Cadastrar">Cadastrar</a></li>
 			<li><a href="index.jsf" title="Sair">Sair</a></li>
 		</ul>
 	</div>
-
 	<h:form class="info">
 		<h1 id="error">Error</h1>
 		<h2>Comando Asterisk não foi realizado</h2>

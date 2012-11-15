@@ -8,7 +8,7 @@
       
      <h:head>
      <title>Asterisk Voice Recognition</title>
-     <link rel="stylesheet" href="css/styleconfig.css" type="text/css"/>
+     <link rel="stylesheet" href="css/stylesip.css" type="text/css"/>
      </h:head> 
      
      <h:body>
@@ -39,12 +39,19 @@
 		</ul>
 	</div>
 	
-	<h:form class="info">
+	<h2>Configurar Atendimento Automático</h2>
+<div class="aba">
+		<h:form id="ramaissip">
+		    <h:outputLabel class="nameLabel" value="Ramal: " for="ramal" />
+			<h:inputText id="ramal" value="#{verbioMB.verbioTxt.exten}"/>
+			<h:outputLabel class="nameLabel" value="Departamento / Setor: " for="dpts" />
+			<h:inputText id="dpts" value="#{verbioMB.verbioTxt.dpts}"/>
+			
+					
+			<h:commandButton class="nameLabel" value="Enviar" action="#{verbioMB.resgisterVerbioTxt()}"/>			
+			</h:form>	
+    </div>
 	
-	<h2>Sistema reiniciado com sucesso!!</h2>
-	
-		</h:form>
 	
      </h:body>
-
 </html>

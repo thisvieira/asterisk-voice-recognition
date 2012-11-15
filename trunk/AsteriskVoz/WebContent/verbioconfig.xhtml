@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 	<title>Asterisk Voice Recognition</title>
@@ -18,15 +18,17 @@
 			<li class='active ' ><a href="asteriskconfig.jsf" title="Home">Home</a></li>
 			<li class='has-sub'><a title="Asterisk">Asterisk</a> 
 				<ul>
-				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal</a></li>
-				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.lstSip}">Listar ramais</a></li>
+				<li><a href="sipconfig.jsf" title="Cadastrar ramal">Cadastrar ramal SIP</a></li>
+				<li><a href="siptablelist.jsf" title="Listar ramais" onclick="#{sipMB.listSip()}">Listar ramais SIP</a></li>
 				<li><a href="dialplanconfig.jsf" title="Dialplan">Dialplan</a></li>
-				<li><a href="initasterisk.jsf" title="Asterisk">Asterisk</a></li>
+				<li><a href="initasterisk.jsf" title="Comandos Asterisk">Comandos Asterisk</a></li>
 				</ul>
 			</li>
 			<li class='has-sub' ><a title="Verbio">Verbio</a> 
 				<ul>
 				<li><a href="verbioconfig.jsf"  title="Configurar">Configurar verbio</a></li>
+				<li><a href="verbiotext.jsf"  title="Verbio Texto">Verbio Texto</a></li>
+				<li><a href="verbiodialplan.jsf"  title="Mensagem Atendimento">Mensagem Atendimento</a></li>
 				</ul>
 			</li>
 			<li><a href="zoiper.jsf" title="Zoiper">Zoiper</a></li>
@@ -38,17 +40,33 @@
 	<h2>Configuração Verbio</h2>
 
 	<div class="aba">
-			<form id="verbioconfig">
-					<label> Primary Vox Server: <input type="text" name="primary" />
-					</label> <label>Backup Vox Server: <input type="text" name="backup" />
-					</label> <label>Default Language: <input type="text" name="language" />
-					</label> <label>Default Speaker: <input type="text" name="speaker" />
-					</label> <label>Text Prompt Path: <input type="text" name="prompt" />
-					</label> <label>Default Config: <input type="text" name="config" />
-					</label> <label>Grammar Path: <input type="text" name="grammar" />
-					</label> <label><input type="submit" name="submit" /> </label>
-			</form>
-		</div>
+		<form id="verbioconfig">
+		<h:outputLabel class="nameLabel" value="Primary Vox Server: " for="primary" />
+			<h:inputText id="primary" value="#{verbioMB.verbioTxt.primary_vox_server}"/>
+			<label>Backup Vox Server: <input type="text" name="backup" />
+			</label> <label>Default Language:</label>
+			<h:selectOneMenu id="type">
+				<f:selectItem itemValue="pt-br (brazilian)" itemLabel="pt-br (brazilian)" />
+				<f:selectItem itemValue="ca (catalan)" itemLabel="ca (catalan)" />
+				<f:selectItem itemValue="es (spanish)" itemLabel="es (spanish)" />
+				<f:selectItem itemValue="ca (catalan)" itemLabel="ca (catalan)" />
+				<f:selectItem itemValue="eu (basque)" itemLabel="eu (basque)" />
+				<f:selectItem itemValue="ga (galician)" itemLabel="ga (galician)" />
+				<f:selectItem itemValue="en-us (us english)" itemLabel="en-us (us english)" />
+				<f:selectItem itemValue="es-ar (argentinian)" itemLabel="es-ar (argentinian)" />
+				<f:selectItem itemValue="es-mx (mexican)" itemLabel="es-mx (mexican)" />
+				<f:selectItem itemValue="fr (french)" itemLabel="fr (french)" />
+				<f:selectItem itemValue="pt (portuguese)" itemLabel="pt (portuguese)" />
+			</h:selectOneMenu>
+			
+			<label>Default Speaker:</label><input type="text" name="prompt" />
+			<label>Text Prompt Path: <input type="text" name="prompt" />
+			</label> <label>Default Config: <input type="text" name="config" />
+			</label> <label>Grammar Path: <input type="text" name="grammar" /></label>
+			<h:commandButton class="nameLabel" value="Enviar" action="#"/>
+			<h:commandButton class="nameLabel" value="Atualizar" action="#{verbioMB.verbioConf()}"/>
+		</form>
+	</div>
 </h:body>
 
 </html>

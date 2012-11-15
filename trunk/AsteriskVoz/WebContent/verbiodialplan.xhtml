@@ -8,7 +8,7 @@
       
      <h:head>
      <title>Asterisk Voice Recognition</title>
-     <link rel="stylesheet" href="css/styleconfig.css" type="text/css"/>
+     <link rel="stylesheet" href="css/stylesip.css" type="text/css"/>
      </h:head> 
      
      <h:body>
@@ -39,12 +39,17 @@
 		</ul>
 	</div>
 	
-	<h:form class="info">
+	<h2>Editar ramal SIP</h2>
+<div class="aba">
+		<h:form id="ramaissip">
+		    <h:outputLabel class="nameLabel" value="Nome: " for="name" />
+			<h:inputTextarea rows="10" cols="50" id="name" value="#{verbioMB.verbioTxt.message}"/>
+			
+					
+			<h:commandButton class="nameLabel" value="Enviar" action="#{verbioMB.verbioDialplan()}"/>			
+			</h:form>	
+    </div>
 	
-	<h2>Sistema reiniciado com sucesso!!</h2>
-	
-		</h:form>
 	
      </h:body>
-
 </html>

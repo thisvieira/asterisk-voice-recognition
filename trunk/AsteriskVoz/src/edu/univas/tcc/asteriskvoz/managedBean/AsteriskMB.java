@@ -74,23 +74,7 @@ public class AsteriskMB {
 		if (error) {
 			return "commanderrorasterisk";
 		}
-		return null;
-	}
-
-	public void initCLI() {
-
-		Process p;
-		try {
-
-			p = Runtime.getRuntime().exec("/home/altieres/initcli.sh");
-			p.waitFor();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		return "restartconfirm";
 	}
 
 	public String reloadDial() throws AsteriskClientException {
@@ -141,38 +125,40 @@ public class AsteriskMB {
 		if (error) {
 			return "commanderrorasterisk";
 		}
-		return null;
+		return "restartconfirm";
 	}
 
-	public void startAsterisk() {
+	public String startAsterisk() {
 
 		Process p;
 		try {
 
 			p = Runtime.getRuntime().exec("/usr/bin/initasterisk.sh");
 			p.waitFor();
-
+			return "restartconfirm";
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 
-	public void stopAsterisk() {
+	public String stopAsterisk() {
 
 		Process p;
 		try {
 
 			p = Runtime.getRuntime().exec("/usr/bin/stopasterisk.sh");
 			p.waitFor();
-
+			return "restartconfirm";
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
 }
