@@ -158,7 +158,8 @@ public class SipMB {
 		try {
 			InitialContext ini = new InitialContext();
 			SipBean sipBean = (SipBean) ini.lookup("java:module/SipBean");
-			sipBean.deleteSip(sip.getId());
+			sipBean.deleteSip(sip);
+			System.out.println("Deletado com sucesso");
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -202,8 +203,4 @@ public class SipMB {
 		this.editSip = editSip;
 	}
 	
-
-	
-
-
 }
