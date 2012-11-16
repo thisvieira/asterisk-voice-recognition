@@ -27,9 +27,9 @@ public class SipBean {
 		return em.createQuery("FROM Sip where id = " + id).getResultList();
 	}
 	
-	public void deleteSip(int id){
-		em.createQuery("delete FROM Sip where id = " + id);
-
+	public void deleteSip(Sip sip){
+		sip = em.merge(sip);
+		em.remove(sip);
 	}
 
 }
